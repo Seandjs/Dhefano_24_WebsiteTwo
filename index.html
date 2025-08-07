@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <style>
+    :root {
+      --primary-color: #0051ba;
+      --secondary-color: #ffffff;
+      --tertiary-color: #7209b7;
+      --text-color: #e0e0e0;
+      --background-color: #0d0d1a;
+      --accent-color: #ffcc00;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      min-height: 2000px;
+    }
+
+    body {
+      background-color: var(--background-color);
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--text-color);
+    }
+
+    p {
+      color: var(--text-color);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary-color);
+      padding: 15px 25px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      border-bottom: #1c1f1a 1px solid;
+    }
+
+    .logo a {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--text-color);
+      font-style: italic;
+    }
+
+    .logo a span {
+      color: var(--accent-color);
+    }
+
+    .navbar-nav a {
+      color: var(--text-color);
+      display: inline-block;
+      font-size: 1.2rem;
+      margin: 0 0.8rem;
+      transition: all 0.3s ease;
+      font-weight: 200;
+    }
+
+    .navbar-nav a:hover {
+      color: var(--secondary-color);
+      transition: all 0.3s ease;
+      font-weight: 200;
+    }
+
+    .navbar-ekstra a {
+      font-size: 15px;
+      color: var(--text-color);
+      margin: 0 0.5rem;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-ekstra a:hover {
+      color: var(--secondary-color);
+      transition: all 0.3s ease-in-out;
+    }
+
+    #menu {
+      display: none;
+    }
+
+    @media (max-width: 1366px) {
+      html {
+        font-size: 75%;
+      }
+    }
+
+    @media (max-width: 757px) {
+      html {
+        font-size: 64.5%;
+      }
+      #menu {
+        display: inline-block;
+      }
+
+      .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: var(--primary-color);
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s ease-in-out;
+      }
+
+      .navbar-nav.active {
+        right: -20%;
+      }
+
+      .navbar-nav a {
+        display: block;
+        padding: 1rem 2rem;
+        color: var(--text-color);
+      }
+
+      .navbar-nav a:hover {
+        color: var(--secondary-color);
+      }
+
+      .navbar-nav a::after {
+        transform-origin: 0 0;
+        background-color: var(--secondary-color);
+      }
+
+      .navbar-nav a:hover:after {
+        transform: scaleX(0.4);
+      }
+    }
+
+    @media (max-width: 450px) {
+      html {
+        font-size: 55%;
+      }
+    }
+
+    @media (max-width: 230px) {
+      html {
+        font-size: 42.5%;
+      }
+    }
+  </style>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="#">Mobil <span>Balap.</span></a>
+      </div>
+      <div class="navbar-nav">
+        <a href="#home">Beranda</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menus">Menu</a>
+        <a href="#contact">Kontak</a>
+      </div>
+      <div class="navbar-ekstra">
+        <a href="#" id="search" f
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></a>
+        <a href="#" id="shopping" f
+          ><i class="fa-solid fa-cart-shopping"></i
+        ></a>
+        <a href="#" id="menu" f><i class="fa-solid fa-bars" id="bars"></i></a>
+      </div>
+    </nav>
+  </body>
+
+  <script>
+    const navbarnav = document.querySelector(".navbar-nav");
+    document.querySelector("#menu").onclick = () => {
+      navbarnav.classList.toggle("active");
+    };
+
+    const menu = document.querySelector("#menu");
+
+    document.addEventListener("click", function (e) {
+      if (!menu.contains(e.target) && !navbarnav.contains(e.target)) {
+        navbarnav.classList.remove("active");
+      }
+    });
+  </script>
+</html>
