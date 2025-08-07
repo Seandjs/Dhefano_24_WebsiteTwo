@@ -22,7 +22,7 @@
       --background-color: #0d0d1a;
       --accent-color: #ffcc00;
     }
-    
+
     * {
       margin: 0;
       padding: 0;
@@ -87,7 +87,7 @@
     .navbar-nav a:hover {
       color: var(--secondary-color);
       transition: all 0.3s ease;
-      font-weight: 200;
+      transform: scale(1.1);
     }
 
     .navbar-ekstra a {
@@ -106,7 +106,6 @@
       display: none;
     }
 
-    
     .home {
       min-height: 100vh;
       display: flex;
@@ -156,7 +155,7 @@
       display: inline-block;
       padding: 0.8rem 2rem;
       background-color: var(--primary-color);
-      color: var(--background-color);
+      color: var(--text-color);
       border-radius: 10px;
       font-size: 13.5px;
       border: var(--primary-color) 3px solid;
@@ -165,7 +164,7 @@
     }
 
     .home .content .cta:hover {
-      background-color: var(--background-color);
+      background-color: var(--text-color);
       transform: scale(1.1);
       color: var(--primary-color);
     }
@@ -194,6 +193,54 @@
       );
     }
 
+    .about {
+      padding: 10rem 7% 1.4rem;
+    }
+
+    .about h2 {
+      justify-content: center;
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 2rem 0;
+      color: var(--text-color);
+    }
+
+    .about h2 span {
+      color: var(--accent-color);
+    }
+
+    .about .row {
+      display: flex;
+    }
+
+    .about .row .about-img {
+      flex: 1 1 45rem;
+    }
+
+    .about .row .about-img img {
+      width: 100%;
+      height: 30rem;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 10px;
+      border: solid 2px var(--primary-color);
+      filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+    }
+
+    .about .row .content {
+      flex: 1 1 35rem;
+      padding: 0 1rem;
+    }
+
+    .about .row .content h3 {
+      font-size: 1.57rem;
+      color: var(--primary-color);
+    }
+
+    .about .row .content p {
+      font-size: 1.2rem;
+    }
+
     @media (max-width: 1366px) {
       html {
         font-size: 75%;
@@ -214,6 +261,7 @@
         right: -100%;
         background-color: var(--primary-color);
         width: 30rem;
+        border-top: var(--background-color);
         height: 100vh;
         transition: 0.3s ease-in-out;
       }
@@ -240,6 +288,24 @@
       .navbar-nav a:hover:after {
         transform: scaleX(0.4);
       }
+
+      .about .row {
+        flex-wrap: wrap;
+      }
+
+      .about .row .about-img img {
+        height: 24rem;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .about .row .content {
+        padding: 0;
+      }
+
+      .about .row .content h3 {
+        font-size: 2rem;
+      }
     }
 
     @media (max-width: 450px) {
@@ -257,12 +323,12 @@
   <body>
     <nav class="navbar">
       <div class="logo">
-        <a href="#">Mobil <span>Balap.</span></a>
+        <a href="#">Mobil <span>Balp.</span></a>
       </div>
       <div class="navbar-nav">
         <a href="#home">Beranda</a>
         <a href="#about">Tentang Kami</a>
-        <a href="#menus">Menu</a>
+        <a href="#listcar">Daftar Mobil</a>
         <a href="#contact">Kontak</a>
       </div>
       <div class="navbar-ekstra">
@@ -282,6 +348,37 @@
         <a href="#" class="cta">Tumbas Now</a>
       </div>
     </section>
+    <section id="about" class="about">
+      <h2>
+        <b>Tentang <span>Kami</span></b>
+      </h2>
+      <div class="content">
+        <div class="row">
+          <div class="about-img">
+            <img src="properties/calsonik.jpg" alt="" />
+          </div>
+          <div class="content">
+            <h3>Apa itu Mobil Balp.???</h3>
+
+            <p>
+              Mobil Balap adalah website yang mengulas dunia balap mobil,
+              mencakup ajang balap nasional dan internasional, ulasan mobil
+              balap, serta profil pembalap ternama. Kami juga menyediakan berita
+              terkini dan informasi lainnya yang relevan bagi para penggemar
+              balap.
+            </p>
+            <br />
+            <p>
+              Selain itu, Mobil Balap menyajikan tips dan trik modifikasi
+              kendaraan untuk keperluan balap. Dengan konten yang selalu
+              diperbarui, kami bertujuan menjadi platform utama bagi komunitas
+              otomotif dan penggemar kecepatan di Indonesia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="listcar" class="listcar"></section>
   </body>
 
   <script>
